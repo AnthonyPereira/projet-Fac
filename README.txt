@@ -1,0 +1,3 @@
+Binôme : Benoît Brebion, Anthony Pereira
+
+Expliquer le jeu, le fonctionnement etc...
