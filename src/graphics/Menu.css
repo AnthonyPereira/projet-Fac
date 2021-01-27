@@ -1,0 +1,85 @@
+.root{
+		-fx-background-color:#fcbc17;
+	
+}
+
+
+#plateau{-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 100, 0.6, 1, 1);
+}
+#menu{
+	-fx-background-image: url("../img/Menu.png");
+	-fx-background-size: cover;
+}
+
+#Button{
+	-fx-border-width:5;
+	-fx-font-color:#fcbc17;
+	-fx-border-color:#fcbc17;
+	-fx-background-color:#4579d9;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 6,4);
+}
+
+#Button:hover {
+    -fx-background-color: #4580d1;
+    -fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+    
+}
+
+#case:hover{
+    -fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+    
+}
+
+#shadow{
+		-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 10, 0, 6,4);
+
+}
+
+
+#Pion{
+	-fx-background-image:url("../img/Menu.png");
+}
+
+.menu-bar .label{
+	-fx-text-fill:whitesmoke;
+}
+
+.menu-bar{
+	-fx-font-size:20px;
+	-fx-background-color:none;
+}
+
+.menu-item .label {
+    -fx-text-fill: #fcbc17;
+    
+}
+.menu-item{
+	-fx-border-width:5;
+		-fx-background-color:#4579d9;
+	
+	-fx-border-color:#fcbc17;
+}
+
+.menu-item:hover {
+     -fx-background-color: pink;
+}
+
+.menu-item:hover .label {
+    -fx-text-fill: blue;
+}
+
+
+#help{
+		-fx-background-image:url("../img/Menu.png");
+		-fx-background-size: cover;
+	
+}
+
+#dark{
+	-fx-background-color:rgba(10,10,10,0.7);
+	-fx-background-image: url("../img/test.gif");
+	-fx-background-size: cover;
+	
+}

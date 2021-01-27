@@ -1,0 +1,100 @@
+#!/bin/bash
+#
+# Builds and executes a JavaFX application.
+#
+# Argument:
+#   $1 - The action to perform, among 'build', 'clean', 'link' or 'run'.
+
+#############
+# VARIABLES #
+#############
+
+# The directory containing the files of the view.
+view="src"
+
+# The name of the output (either a JAR or a runtime image).
+output="labyrinthe"
+
+# The name of the module of the project.
+module="labyrinthe"
+
+# The name of the main class (with its package completely specified).
+main="graphics.Main"
+
+#############
+# FUNCTIONS #
+#############
+
+##############################################################################
+# Builds the JAR of the JavaFX application.
+#
+# Returns:
+#   None
+##############################################################################
+function build {
+    ant -Dlib="$JAVAFX_HOME/lib" -Dview="$view" -Djarname="$output" build
+}
+
+##############################################################################
+# Removes the binaries of the JavaFX application.
+#
+# Returns:
+#   None
+##############################################################################
+function clean {
+    rm -rf "$output" "$output.jar"
+}
+
+##############################################################################
+# Builds the runtime image of the JavaFX application.
+# If the application is not built yet, the build is performed before starting.
+#
+# Returns:
+#   None
+##############################################################################
+function link {
+    test ! -e "$output.jar" && build
+    jlink --launcher "$output=$module/$main" \
+          --module-path "$JAVAFX_HOME/jmods:$output.jar" \
+          --add-modules "$module" \
+          --output "$output"
+}
+
+##############################################################################
+# Runs the JavaFX application.
+# If the application is not built yet, the build is performed before starting.
+#
+# Returns:
+#   None
+##############################################################################
+function run {
+    test ! -e "$output.jar" && build
+    java --module-path "$JAVAFX_HOME/lib:$output.jar" --module "$module/$main"
+}
+
+##############################################################################
+# Displays the usage of this executable, and exits.
+#
+# Argument:
+#   $1 - The name of the executable.
+#   $2 - The exit status to use.
+#
+# Returns:
+#   None
+##############################################################################
+function usage {
+    echo "Usage: $1 [ build | clean | link | run ]"
+    exit "$2"
+}
+
+########
+# MAIN #
+########
+
+# Verifying the command line.
+test $# -eq 0 && set -- "run"
+test $# -ne 1 && usage "$0" 1
+test "$1" != "build" -a "$1" != "clean" -a "$1" != "link" -a "$1" != "run" && usage "$0" 2
+
+# Executing the action.
+"$1"

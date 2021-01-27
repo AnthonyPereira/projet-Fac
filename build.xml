@@ -1,0 +1,42 @@
+<project name="labyrinthe" default="all" basedir="." xmlns:if="ant:if">
+    <path id="binaries">
+        <fileset dir="${lib}" if:set="lib">
+            <include name="*.jar" />
+        </fileset>
+    	
+        <pathelement location="bin" />
+    </path>
+
+    <target name="clean" description="Removes all generated files">
+        <delete dir="bin" />
+    </target>
+
+    <target name="prepare" depends="clean" description="Prepares the compilation">
+        <tstamp />
+        <mkdir dir="bin" />
+    </target>
+
+    <target name="build" description="Creates the Jar file" depends="prepare">
+        <javac includeantruntime="true"
+               source="11"
+               target="11"
+               encoding="UTF-8"
+               destdir="bin"
+               debug="true">
+            <src path="src" />
+            <modulepath refid="binaries" />
+        </javac>
+    	<copy todir="./bin/img"> 
+    	        <fileset dir="${basedir}/img" >
+    	            <include name="**/*" />
+    	        </fileset> 
+    	</copy>
+        <jar destfile="${jarname}.jar" basedir="bin">
+            <fileset dir="${view}" includes="**/*.fxml" />
+        	<fileset dir="${view}" includes="**/*.css" />
+        </jar>
+    </target>
+
+    <target name="all" description="Builds the whole project" depends="clean,build" />
+</project>
+

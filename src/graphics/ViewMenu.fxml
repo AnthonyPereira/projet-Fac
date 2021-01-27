@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="700.0" stylesheets="@Menu.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="graphics.Controller">
+            <children>
+      <Pane id="menu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button id="Button" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="476.0" layoutY="521.0" onAction="#quit" text="QUITTER" textFill="#ffcc00">
+               <font>
+                  <Font name="Comic Sans MS" size="24.0" />
+               </font>
+            </Button>
+            <CheckBox id="Button" fx:id="check" layoutX="236.0" layoutY="528.0" mnemonicParsing="false" onAction="#setVariante" prefHeight="43.0" prefWidth="186.0" text="Variante" textFill="#ffcc00">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </CheckBox>
+      		<Button id="Button" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="490.0" layoutY="425.0" onAction="#switchtogame" text="START" textFill="#ffcc00">
+      		   <font>
+      		   <Font name="Comic Sans MS" size="25.0" />
+      		   </font>
+      		</Button>
+            <MenuButton id="Button" layoutX="48.0" layoutY="433.0" mnemonicParsing="false" text="Difficulté" textFill="#ffcc00">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#setdiff" text="1" />
+                <MenuItem mnemonicParsing="false" onAction="#setdiff" onMenuValidation="#setNbPlayer" text="2" />
+                <MenuItem mnemonicParsing="false" onAction="#setdiff" onMenuValidation="#setNbPlayer" text="3" />
+              </items>
+               <font>
+                  <Font name="Comic Sans MS" size="17.0" />
+               </font>
+            </MenuButton>
+            <MenuButton id="Button" layoutX="208.0" layoutY="433.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="233.0" text="Nombre de joueurs" textFill="#ffcc00">
+               <items>
+                  <Menu mnemonicParsing="false" onAction="#setNbPlayer" text="1 Joueur">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="1 IA" />
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="2 IA" />
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="3 IA" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" onAction="#setNbPlayer" text="2 Joueur">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="0 IA" />
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="1 IA" />
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="2 IA" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" onAction="#setNbPlayer" text="3 Joueur">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="0 IA" />
+                        <MenuItem mnemonicParsing="false" onAction="#setNbIA" text="1 IA" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" onAction="#setNbPlayer" text="4 Joueur" />
+               </items>
+               <font>
+                  <Font name="Comic Sans MS" size="17.0" />
+               </font>
+            </MenuButton>
+            <MenuButton id="Button" fx:id="theme" layoutX="48.0" layoutY="528.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="161.0" text="Thème" textFill="#ffcc00">
+               <font>
+                  <Font name="Comic Sans MS" size="17.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </Pane>
+            </children>
+</AnchorPane>
