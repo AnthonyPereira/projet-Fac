@@ -1,0 +1,46 @@
+h1 {
+    display: inline;
+}
+
+table, td {
+    margin: auto;
+    border: 2px solid black;
+}
+
+td {
+    height: 82px;
+    width: 82px;
+}
+
+.allMargin {
+    margin: 12px;
+}
+
+.topMargin {
+    margin-top: 12px;
+}
+
+.bigTopMargin {
+    margin-top: 30px;
+}
+
+.bigLeftMargin {
+    margin-left: 30px;
+}
+
+.rightBotMargin {
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+
+.inputChoix {
+    width: 81px;
+    height: 81px;
+    background-color: transparent;
+    border: 2px dashed red;
+    color: transparent;
+}
+
+.inputChoixValider {
+    border: 2px solid green;
+}
